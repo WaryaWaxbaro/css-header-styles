@@ -1,0 +1,191 @@
+/*
+    useful links
+    https://codepen.io/chriscoyier/pen/yddMLq
+    https://css-tricks.com/crop-top/
+
+ */
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    box-sizing: inherit;
+    font-size: 62.5%; /* base fonts 10px */
+}
+
+.header {
+    height: auto;
+    width: 100%;
+    position: relative;
+}
+
+.nav {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 40px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 2rem;
+}
+
+.logo {
+    color: yellowgreen;
+    text-transform: uppercase;
+}
+
+.nav-list {
+    list-style-type: none;
+    margin-right: 10px;
+    display: flex;
+}
+
+.nav-list-item {
+    margin-right: 10px;
+}
+
+.nav-list-item:last-child {
+    margin-right: 0;
+}
+
+.nav-list-item a {
+    display: inline-block;
+    margin-right: 10px;
+    text-decoration: none;
+    color: yellowgreen;
+    text-transform: uppercase;
+    font-size: 1.6rem;
+}
+
+.nav-list-item a:hover {
+    color: orange;
+}
+
+.hero {
+    max-height: 370px;
+    overflow: hidden;
+    /* position: relative; */
+}
+
+.img-block {
+      /* corrects small inline gap at bottom of containing div */
+	display: block; 
+    width: 100%; /* corrects obscure Firefox bug */
+    max-width: 100%;
+      /* just in case, to force correct aspect ratio */
+    height: auto !important;
+    display: block; /* corrects small inline gap at bottom of containing div */
+    width: 100%; /* corrects obscure Firefox bug */
+    max-width: 100%;
+    /* just in case, to force correct aspect ratio */
+    height: auto !important;
+    /*width: auto\9; 
+    /* ie8+9 - use modernizr instead of this \9 hack */
+    /* lt ie8 */
+    -ms-interpolation-mode: bicubic;
+      /* optionally force a minimum size if img src size is known: */
+      /* min-height: 320px; /* max-height of .crop-height */
+      /* min-width: 480px; /* proportional to above */
+}
+
+.hero-header {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.wrapper {
+    width: 100%;
+    /* background-color: green; */
+    text-align: center;
+    padding: 3rem 1.5rem 3rem 1.5rem;
+    border-radius: 80%  / 80% ;
+}
+
+.wrapper::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 80%  / 50% ;
+    width: 100%;
+    height: 100%;
+    /* background-color: white; */
+    z-index: -1;
+    background-image: radial-gradient(#993299, #a64ca6, rgba(216,178,216, .6), transparent);
+    filter: blur(10px);
+    border: 3px solid transparent;
+}
+
+.inside-container {
+    width: 80%;
+    margin-left: 10%;
+    color: #f7f7f7;
+}
+
+.w-heading{
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
+}
+
+.w-para{
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+}
+
+.btn {
+    padding: 1rem 1.5rem;
+    text-transform: uppercase;
+    outline: none;
+    border: none;
+    border-radius: 10rem;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, .3);
+}
+
+.btn:hover {
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, .3);
+    background-color: #ccc;
+    cursor: pointer;
+}
+
+.main {
+    margin-top: 5px;
+    display: grid;
+    grid-template-rows: repeat( auto-fit, minmax(250px, 1fr) );
+    grid-template-columns: repeat( auto-fit, minmax(250px, 1fr) );
+    column-gap: 10px;
+    row-gap: 10px;
+}
+
+.main-div {
+    width: 250px;
+    height: 250px;
+    background-color: orange;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 5rem;
+    color: #f7f7f7;
+}
+
+@media only screen and (max-width: 500px) {
+    .inside-container {
+        width: 100%;
+        margin-left: 0;
+    }
+  }
+
+  @media only screen and (max-width: 450px) {
+    .hero-header {
+        width: 100%;
+        top: 60%;
+    }
+  }
